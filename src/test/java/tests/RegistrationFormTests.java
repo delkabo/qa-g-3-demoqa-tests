@@ -27,27 +27,23 @@ public class RegistrationFormTests {
         registrationPage.openPage()
                 .setFirstName(firstname)
                 .setLastName(lastName)
-                .setBirthDate("may", "1990", "13");
-        $("#userEmail").setValue(email);
-        $("#genterWrapper").$(byText("Other")).click();
-        $("#userNumber").setValue("89999999999");
-        $("#dateOfBirthInput").click();
-        $("#subjectsInput").setValue("Math").pressEnter();
-        $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("cv.jpg");
-        $("#currentAddress").setValue("Some address 1");
-        $("#state").scrollTo().click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Noida")).click();
-        $("#submit").click();
-
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").$(byText("Student Name"))
-                .parent().shouldHave(text("Kamil Syapukov"));
-        registrationPage
-                    .checkForm("Student Name", firstname + " " + lastName)
-                    .checkForm("Student Email", email)
-                    .checkForm("Gender", "Other");
+                .setBirthDate("may", "1990", "13")
+                .setEmail(email)
+                .setGender("Other")
+                .setNumberUser("89999999999")
+                .interests("Math")
+                .hobbies("Sports")
+                .uploadPicture("cv.jpg")
+                .curAddress("Some address 1")
+                .scrollTo()
+                .stateCity("NCR")
+                .scrollToCity()
+                .stateCity("Noida")
+                .submitButton()
+                .showThanks("Thanks for submitting the form")
+                .checkInput(firstname + "" + lastName)
+                .checkForm("Student Name", firstname + " " + lastName)
+                .checkForm("Student Email", email)
+                .checkForm("Gender", "Other");
     }
 }
