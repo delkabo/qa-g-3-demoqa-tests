@@ -10,10 +10,11 @@ import static com.codeborne.selenide.Selenide.open;
 public class RegistrationPage {
     //locators
     //"#firstName"
-    SelenideElement headerTitle = $(".practice-form-wrapper");
-    SelenideElement firstNameInput  = $("#firstName");
-    SelenideElement firsLastNameInput  = $("#lastName");
-    SelenideElement resultTable = $(".table-responsive");
+    private SelenideElement
+            headerTitle = $(".practice-form-wrapper"),
+            firstNameInput  = $("#firstName"),
+            firsLastNameInput  = $("#lastName"),
+            resultTable = $(".table-responsive");
 
 
     //actions
