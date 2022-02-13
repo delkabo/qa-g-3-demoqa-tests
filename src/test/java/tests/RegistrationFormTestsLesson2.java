@@ -4,13 +4,11 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationFormTests {
+public class RegistrationFormTestsLesson2 {
 
     @BeforeAll
     static void beforeAll() {
@@ -23,8 +21,8 @@ public class RegistrationFormTests {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
 
-        new RegistrationPage().setFirstName("Kamil");
-        new RegistrationPage().setLastName("Syapukov");
+        $("#firstName").setValue("Kamil");
+        $("#lastName").setValue("Syapukov");
         $("#userEmail").setValue("kamil@syapukov.com");
         $("#genterWrapper").$(byText("Other")).click();
         $("#userNumber").setValue("89999999999");
@@ -45,8 +43,5 @@ public class RegistrationFormTests {
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").$(byText("Student Name"))
                 .parent().shouldHave(text("Kamil Syapukov"));
-        new RegistrationPage().checkForm("Student Name", "Kamil Syapukov");
-        new RegistrationPage().checkForm("Student Email", "kamil@syapukov.com");
-        new RegistrationPage().checkForm("Gender", "Other");
     }
 }
