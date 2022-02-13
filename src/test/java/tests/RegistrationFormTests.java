@@ -27,7 +27,7 @@ public class RegistrationFormTests {
         registrationPage.openPage()
                 .setFirstName(firstname)
                 .setLastName(lastName)
-                .setBirthDate("may", "1990", "13")
+                .setBirthDate("May", "1990", "17")
                 .setEmail(email)
                 .setGender("Other")
                 .setNumberUser("89999999999")

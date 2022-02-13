@@ -17,6 +17,7 @@ public class RegistrationPage {
             firstNameInput  = $("#firstName"),
             firsLastNameInput  = $("#lastName"),
             resultTable = $(".table-responsive"),
+            inpDate = $("#dateOfBirthInput"),
             inpEmail = $("#userEmail"),
             inpGender = $("#genterWrapper"),
             inpNumber = $("#userNumber"),
@@ -57,8 +58,8 @@ public class RegistrationPage {
         return this;
     }
     public RegistrationPage setBirthDate(String month, String year, String day) {
-    $("#dateOfBithInput").click();
-    calendarComponent.setDate(month, year, day);
+        inpDate.click();
+        calendarComponent.setDate(month, year, day);
     return this;
     }
 
