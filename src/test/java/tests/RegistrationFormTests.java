@@ -12,6 +12,11 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormTests {
 
+    RegistrationPage registrationPage = new RegistrationPage();
+    String firstname = "Kamil";
+    String lastName = "Syapukov";
+    String email = "kamil@syapukov.com";
+
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
@@ -20,12 +25,10 @@ public class RegistrationFormTests {
 
     @Test
     void successFillTest() {
-        open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-
-        new RegistrationPage().setFirstName("Kamil");
-        new RegistrationPage().setLastName("Syapukov");
-        $("#userEmail").setValue("kamil@syapukov.com");
+        registrationPage.openPage()
+                .setFirstName(firstname)
+                .setLastName(lastName);
+        $("#userEmail").setValue(email);
         $("#genterWrapper").$(byText("Other")).click();
         $("#userNumber").setValue("89999999999");
         $("#dateOfBirthInput").click();
@@ -45,8 +48,9 @@ public class RegistrationFormTests {
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").$(byText("Student Name"))
                 .parent().shouldHave(text("Kamil Syapukov"));
-        new RegistrationPage().checkForm("Student Name", "Kamil Syapukov");
-        new RegistrationPage().checkForm("Student Email", "kamil@syapukov.com");
-        new RegistrationPage().checkForm("Gender", "Other");
+        registrationPage
+                    .checkForm("Student Name", firstname + " " + lastName)
+                    .checkForm("Student Email", email)
+                    .checkForm("Gender", "Other");
     }
 }
