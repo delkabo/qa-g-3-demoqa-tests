@@ -1,15 +1,17 @@
-package tests;
+package Pages;
 
+import Pages.Components.CalendarComponent;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
+    //components
+    CalendarComponent calendarComponent = new CalendarComponent();
+
     //locators
-    //"#firstName"
     private SelenideElement
             headerTitle = $(".practice-form-wrapper"),
             firstNameInput  = $("#firstName"),
@@ -39,5 +41,9 @@ public class RegistrationPage {
         resultTable.$(byText(fieldName))
                 .parent().shouldHave(text(value));
         return this;
+    }
+    public void setBirthDate(String month, String year, String day) {
+    $("#dateOfBithInput").click();
+    calendarComponent.setDate(month, year, day);
     }
 }

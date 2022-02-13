@@ -1,10 +1,9 @@
 package tests;
 
+import Pages.RegistrationPage;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -27,14 +26,12 @@ public class RegistrationFormTests {
     void successFillTest() {
         registrationPage.openPage()
                 .setFirstName(firstname)
-                .setLastName(lastName);
+                .setLastName(lastName)
+                .setBirthDate("may", "1990", "13");
         $("#userEmail").setValue(email);
         $("#genterWrapper").$(byText("Other")).click();
         $("#userNumber").setValue("89999999999");
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("May");
-        $(".react-datepicker__year-select").selectOption("2008");
-        $$(".react-datepicker__day").findBy(text("13")).click();
         $("#subjectsInput").setValue("Math").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("cv.jpg");
