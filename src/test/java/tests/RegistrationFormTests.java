@@ -41,7 +41,7 @@ public class RegistrationFormTests {
                 .stateCity("Noida")
                 .submitButton()
                 .showThanks("Thanks for submitting the form")
-                .checkInput(firstname + "" + lastName)
+                .checkInput(firstname + " " + lastName)
                 .checkForm("Student Name", firstname + " " + lastName)
                 .checkForm("Student Email", email)
                 .checkForm("Gender", "Other");
