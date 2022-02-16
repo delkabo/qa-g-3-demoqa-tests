@@ -52,11 +52,6 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage checkForm(String fieldName, String value) {
-        resultTable.$(byText(fieldName))
-                .parent().shouldHave(text(value));
-        return this;
-    }
     public RegistrationPage setBirthDate(String month, String year, String day) {
         inpDate.click();
         calendarComponent.setDate(month, year, day);
@@ -123,9 +118,11 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage checkInput(String nameLastName) {
-        inpCheck.parent().shouldHave(text(nameLastName));
+    public RegistrationPage checkForm(String fieldName, String value) {
+        resultTable.$(byText(fieldName))
+                .parent().shouldHave(text(value));
         return this;
     }
+
 
 }

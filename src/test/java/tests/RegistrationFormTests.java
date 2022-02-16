@@ -41,9 +41,15 @@ public class RegistrationFormTests {
                 .stateCity("Noida")
                 .submitButton()
                 .showThanks("Thanks for submitting the form")
-                .checkInput(firstname + " " + lastName)
                 .checkForm("Student Name", firstname + " " + lastName)
                 .checkForm("Student Email", email)
-                .checkForm("Gender", "Other");
+                .checkForm("Gender", "Other")
+                .checkForm("Mobile", "8999999999")
+                .checkForm("Date of Birth", "17 May,1990")
+                .checkForm("Subjects", "Maths")
+                .checkForm("Hobbies", "Sports")
+                .checkForm("Picture", "cv.jpg")
+                .checkForm("Address", "Some address 1")
+                .checkForm("State and City", "NCR Noida");
     }
 }
