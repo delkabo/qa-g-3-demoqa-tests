@@ -1,6 +1,4 @@
-package Pages.Components;
-
-import com.codeborne.selenide.SelenideElement;
+package pages.components;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
